@@ -19,7 +19,9 @@
   },
   "dependencies": {
     "@vimeo/player": "^2.18.0",
+    "lodash.throttle": "^4.1.1",
     "modern-normalize": "^1.1.0",
+    "npm": "^9.6.3",
     "simplelightbox": "^2.13.0"
   },
   "devDependencies": {
