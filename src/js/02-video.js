@@ -1,10 +1,10 @@
 // Import libraries
 import Player from '@vimeo/player';
+import throttle from 'lodash.throttle';
 
 // Add Vimeo Player
 const iframe = document.querySelector('iframe');
 const player = new Player(iframe);
-const throttle = require('lodash.throttle');
 
 // Add lisener for timeupdate
 player.on(
@@ -12,8 +12,7 @@ player.on(
   throttle(function (data) {
     const currentTime = data.seconds;
     localStorage.setItem('videoplayer-current-time', currentTime);
-  }),
-  1000
+  }, 1000)
 );
 
 // Resume video
