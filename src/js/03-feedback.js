@@ -4,10 +4,6 @@ const feedbackForm = document.querySelector('.feedback-form');
 const emailInput = feedbackForm.querySelector('input[name=email]');
 const messageInput = feedbackForm.querySelector('textarea[name=message]');
 
-console.log(feedbackForm.innerHTML);
-console.log(emailInput.innerHTML);
-console.log(messageInput.innerHTML);
-
 // Save state to local storage
 const saveState = () => {
   const state = {
@@ -32,6 +28,14 @@ const loadState = () => {
 window.addEventListener('load', loadState);
 
 // Clear local storage on submit
-feedbackForm.addEventListener('submit', () => {
+feedbackForm.addEventListener('submit', e => {
+  e.preventDefault();
+  emailInput.value = '';
+  messageInput.value = '';
   localStorage.removeItem('feedback-form-state');
+  const state = {
+    email: emailInput.value,
+    message: messageInput.value,
+  };
+  console.log(state);
 });
