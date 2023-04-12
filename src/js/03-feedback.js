@@ -30,12 +30,12 @@ window.addEventListener('load', loadState);
 // Clear local storage on submit
 feedbackForm.addEventListener('submit', e => {
   e.preventDefault();
-  emailInput.value = '';
-  messageInput.value = '';
-  localStorage.removeItem('feedback-form-state');
   const state = {
     email: emailInput.value,
     message: messageInput.value,
   };
   console.log(state);
+  emailInput.value = '';
+  messageInput.value = '';
+  localStorage.removeItem('feedback-form-state');
 });
